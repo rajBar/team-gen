@@ -1,0 +1,1 @@
+export const GENERATE_TEAM = 'GENERATE_TEAM';
