@@ -55,7 +55,7 @@ const teamRandomiser = (currentTeam) => {
 const generateTeam = (state, action) => {
     const currentTeam = action.payload.team;
     const generatedTeam = teamRandomiser([...currentTeam]);
-    console.log(generatedTeam);
+
     return {
         ...state,
         playerNames: generatedTeam,
@@ -63,10 +63,28 @@ const generateTeam = (state, action) => {
     }
 }
 
+const changeFormation = (state, action) => {
+    const newFormation = action.payload.formation;
+    let formation;
+
+    formations.forEach(e => {
+        if (e.name === newFormation)
+            formation = e.formation;
+    });
+
+    return {
+        ...state,
+        currentFormation: newFormation,
+        formation,
+    }
+}
+
 export default (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.GENERATE_TEAM:
             return generateTeam(state, action);
+        case actionTypes.CHANGE_FORMATION:
+            return changeFormation(state, action);
         default:
             return state;
     }

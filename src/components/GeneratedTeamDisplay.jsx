@@ -4,7 +4,7 @@ const GeneratedTeamDisplay = props => {
     const { generatedTeam, formation } = props;
 
     return (
-        <div style={{marginTop: "5px"}}>
+        <div style={{marginTop: "5px", marginBottom: "30px"}}>
             {generatedTeam.map((player, i) => {
                 if (i < formation.length) {
                     return <h5 style={{margin: "1px"}}>{`${formation[i]}: ${player}`}</h5>

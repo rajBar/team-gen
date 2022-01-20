@@ -1,1 +1,2 @@
 export const GENERATE_TEAM = 'GENERATE_TEAM';
+export const CHANGE_FORMATION = 'CHANGE_FORMATION';

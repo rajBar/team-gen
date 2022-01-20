@@ -9,7 +9,17 @@ class Home extends Component {
         super(props);
         this.state = {
             alerted: false,
+            currentFormation: FORMATIONS.FOUR_FOUR_TWO,
         };
+
+        this.formationChange = this.formationChange.bind(this);
+    }
+
+    formationChange(event) {
+        const { changeFormation } = this.props;
+        const newFormation = event.target.value;
+        changeFormation(newFormation);
+        this.setState({currentFormation: newFormation});
     }
 
     async notifyPhone() {
@@ -38,10 +48,9 @@ class Home extends Component {
         return (
             <div>
                 <h2>Team Generator</h2>
-                <br />
-                <select>
+                <select value={this.state.currentFormation} onChange={this.formationChange}>
                     {formations.map(formation =>
-                        (<option>{formation.value}</option>))
+                        (<option value={formation.value}>{formation.value}</option>))
                     }
                 </select>
                 <br />
