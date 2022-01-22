@@ -1,0 +1,23 @@
+.selectedButton {
+    color: black;
+    background: white;
+    border: 2px solid black;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+.nonSelectedButton {
+    color: #666666;
+    background: white;
+    border: 2px solid #bbbbbb;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+.nonSelectedButton:hover {
+    color: black;
+    background: white;
+    border: 2px solid #666666;
+    margin-top: 0px;
+    margin-left: 5px;
+}

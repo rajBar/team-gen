@@ -10,7 +10,7 @@ const GeneratedTeamDisplay = props => {
                     return <h5 style={{margin: "1px"}}>{`${formation[i]}: ${player}`}</h5>
                 }
                 if (i === 11) {
-                    return <h5 style={{margin: "1px"}}>{`Linesman: ${player}`}</h5>
+                    return <h5 style={{margin: "8px"}}>{`Linesman: ${player}`}</h5>
                 }
                 return <h5 style={{margin: "1px"}}>{`Sub: ${player}`}</h5>
             })}

@@ -9,3 +9,15 @@ export const changeFormation = formation => ({
     type: actionTypes.CHANGE_FORMATION,
     payload: { formation },
 });
+
+export const generateSubstitutes = () => ({
+    type: actionTypes.GENERATE_SUBSTITUTES,
+});
+
+export const dontMakeSubstitute = () => ({
+    type: actionTypes.DONT_MAKE_SUBSTITUTE,
+});
+
+export const makeSubstitute = () => ({
+    type: actionTypes.MAKE_SUBSTITUTE,
+});

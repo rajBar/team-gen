@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
 const GenerateTeamScreen = props => {
-    const [playerList, setPlayerList] = useState(["","","","","","","","","","",""]);
-    const { generateTeam } = props;
+    const { generateTeam, playerNames } = props;
+    const [playerList, setPlayerList] = useState(playerNames);
 
     const playerTextBox = (playerName, index) => (
         <span>
-            <input placeholder={"Players Name"} style={{marginRight: "3px"}} value={playerName} onChange={event => updateUserName(index, event)} />
+            <input placeholder={"Players Name"} style={{margin: "2px 3px"}} value={playerName} onChange={event => updateUserName(index, event)} />
             <button onClick={() => removePlayTextBox(index)} style={{backgroundColor: "red", borderRadius: "5px", color: "whitesmoke"}}>✖</button>
             <br />
         </span>
