@@ -64,7 +64,7 @@ class Home extends Component {
                 {generatedTeam.length > 11 &&
                     <div style={{marginBottom: "8px"}}>
                         <button className={this.state.currentTab === "gen" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("gen")}>Generate Team</button>
-                        <button className={this.state.currentTab === "sub" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("sub")}>Make Substitutes</button>
+                        <button className={this.state.currentTab === "sub" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("sub")}>Substitutes</button>
                     </div>
                 }
                 {this.state.currentTab === 'gen' &&
