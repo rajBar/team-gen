@@ -5,11 +5,11 @@ const GenerateTeamScreen = props => {
     const [playerList, setPlayerList] = useState(playerNames);
 
     const playerTextBox = (playerName, index) => (
-        <span>
-            <input placeholder={"Players Name"} style={{margin: "2px 3px"}} value={playerName} onChange={event => updateUserName(index, event)} />
-            <button onClick={() => removePlayTextBox(index)} style={{backgroundColor: "red", borderRadius: "5px", color: "whitesmoke"}}>✖</button>
+        <div style={{marginTop: "2px", verticalAlign: "middle"}}>
+            <input placeholder={"Players Name"} style={{marginRight: "3px"}} value={playerName} onChange={event => updateUserName(index, event)} />
+            <button style={{position: "relative", bottom: "-2px"}} className={"buttonSmall buttonRed"} onClick={() => removePlayTextBox(index)}>✖</button>
             <br />
-        </span>
+        </div>
     )
 
     const updateUserName = (index, name) => {
@@ -34,11 +34,11 @@ const GenerateTeamScreen = props => {
         <div style={{marginTop: "5px"}}>
             {playerList.map((player, i) => playerTextBox(player, i))}
             <span>
-                <button onClick={() => newPlayerTextBox()} style={{backgroundColor: "darkgreen", borderRadius: "5px", color: "whitesmoke", marginTop: "5px"}}>+</button>
+                <button style={{marginTop: "10px", fontSize: "22px", padding: "2px 6px 0 6px"}} className={"buttonSmall buttonGreen"} onClick={() => newPlayerTextBox()}>+</button>
             </span>
             <br />
             <br />
-            <button onClick={() => generateTeam(playerList)} style={{borderRadius: "5px", backgroundColor: "lightblue"}}>Generate Team</button>
+            <button className={"button buttonBlue"} onClick={() => generateTeam(playerList)}>Generate Team</button>
             <br />
             <br />
         </div>
