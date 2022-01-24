@@ -10,11 +10,13 @@ const SubstituteMaker = props => {
             {generatedSubstitutes !== null && <button className={"button buttonRed"} onClick={() => dontMakeSubstitutes()}>Cancel Substitutes</button>}
             {generatedSubstitutes !== null && <button className={"button buttonGreen"} style={{marginLeft: "2px"}} onClick={() => makeSubstitutes()}>Confirm Substitutes</button>}
             <br />
-            {subInfo !== null && <ul style={{listStyleType: "none"}}>
-                {subInfo.map(sub => {
-                    return (<li>{`${sub.position}: ${sub.on} coming on for ${sub.off}`}</li>)
-                })}
-            </ul>}
+            <br />
+            {subInfo !== null &&
+                subInfo.map((sub, i) => {
+                    if (i === 0) return (<div style={{margin: "6px"}}><b>{sub.position}: {sub.on}</b> coming on for <b>{sub.off}</b> (new Lino)</div>)
+                    return (<div style={{margin: "6px"}}><b>{sub.position}: {sub.on}</b> coming on for <b>{sub.off}</b></div>)
+                })
+            }
         </div>
     )
 }

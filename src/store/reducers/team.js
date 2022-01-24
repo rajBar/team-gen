@@ -5,7 +5,7 @@ import formations from '../../utils/consts/formationComposition';
 const initialState = {
     currentFormation: FORMATIONS.FOUR_FOUR_TWO,
     formation: formations[0].formation,
-    // playerNames: ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven"],
+    // playerNames: ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen"],
     playerNames: ["","","","","","","","","","",""],
     generatedTeam: [],
     generatedSubs: null,
