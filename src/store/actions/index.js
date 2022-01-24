@@ -21,3 +21,8 @@ export const dontMakeSubstitute = () => ({
 export const makeSubstitute = () => ({
     type: actionTypes.MAKE_SUBSTITUTE,
 });
+
+export const changeTab = tab => ({
+    type: actionTypes.CHANGE_TAB,
+    payload: { tab },
+})

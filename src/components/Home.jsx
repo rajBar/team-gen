@@ -12,7 +12,6 @@ class Home extends Component {
         this.state = {
             alerted: false,
             currentFormation: FORMATIONS.FOUR_FOUR_TWO,
-            currentTab: 'gen'
         };
 
         this.formationChange = this.formationChange.bind(this);
@@ -29,10 +28,8 @@ class Home extends Component {
     }
 
     changeTab(tab) {
-        this.setState({
-            ...this.state,
-            currentTab: tab}
-        );
+        const { changeTab } = this.props;
+        changeTab(tab);
     }
 
     async notifyPhone() {
@@ -54,7 +51,7 @@ class Home extends Component {
 
     render() {
         // this.notifyPhone();
-        const { generatedTeam } = this.props;
+        const { generatedTeam, tab } = this.props;
         const formations = [];
         Object.keys(FORMATIONS).map((key) => formations.push({key, value: FORMATIONS[key]}))
 
@@ -63,11 +60,11 @@ class Home extends Component {
                 <h2>Team Generator</h2>
                 {generatedTeam.length > 11 &&
                     <div style={{marginBottom: "8px"}}>
-                        <button className={this.state.currentTab === "gen" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("gen")}>Generate Team</button>
-                        <button className={this.state.currentTab === "sub" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("sub")}>Substitutes</button>
+                        <button className={tab === "gen" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("gen")}>Generate Team</button>
+                        <button className={tab === "sub" ? "selectedButton" : "nonSelectedButton"} onClick={() => this.changeTab("sub")}>Substitutes</button>
                     </div>
                 }
-                {this.state.currentTab === 'gen' &&
+                {tab === 'gen' &&
                     (<div>
                         <select value={this.state.currentFormation} onChange={this.formationChange}>
                             {formations.map(formation =>
@@ -79,7 +76,7 @@ class Home extends Component {
                         {generatedTeam && <GeneratedTeamDisplay />}
                     </div>)
                 }
-                {this.state.currentTab === 'sub' &&
+                {tab === 'sub' &&
                     <div>
                         <GeneratedTeamDisplay />
                         <SubstituteMaker />

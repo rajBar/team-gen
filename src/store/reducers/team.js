@@ -10,6 +10,7 @@ const initialState = {
     generatedTeam: [],
     generatedSubs: null,
     subInfo: null,
+    tab: 'gen',
 };
 
 const removeItemAll = (arr) => {
@@ -67,12 +68,15 @@ const generateTeam = (state, action) => {
         generatedTeam = teamRandomiser([...currentTeam]);
     }
 
+    const tab = generatedTeam.length > 11 ? 'sub' : 'gen';
+
     return {
         ...state,
         playerNames: currentTeam,
         generatedTeam: generatedTeam,
         subInfo: null,
         generatedSubs: null,
+        tab,
     }
 }
 
@@ -151,6 +155,11 @@ const makeSubstitute = (state, action) => {
     }
 }
 
+const changeTab = (state, action) => ({
+    ...state,
+    tab: action.payload.tab,
+})
+
 export default (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.GENERATE_TEAM:
@@ -162,7 +171,9 @@ export default (state = initialState, action) => {
         case actionTypes.DONT_MAKE_SUBSTITUTE:
             return dontMakeSubstitute(state, action);
         case actionTypes.MAKE_SUBSTITUTE:
-            return makeSubstitute(state, action)
+            return makeSubstitute(state, action);
+        case actionTypes.CHANGE_TAB:
+            return changeTab(state, action);
         default:
             return state;
     }
