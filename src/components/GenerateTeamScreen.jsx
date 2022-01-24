@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { mkCityTeamList } from "../utils/consts/mkCityTeam";
 
 const GenerateTeamScreen = props => {
     const { generateTeam, playerNames } = props;
@@ -32,6 +33,7 @@ const GenerateTeamScreen = props => {
 
     return (
         <div style={{marginTop: "5px"}}>
+            {playerList.length === 0 && <div><button onClick={() => setPlayerList(mkCityTeamList)} className={"button buttonGreen"}>Generate MK City</button><br/></div>}
             {playerList.map((player, i) => playerTextBox(player, i))}
             <span>
                 <button style={{marginTop: "10px", fontSize: "22px", padding: "2px 6px 0 6px"}} className={"buttonSmall buttonGreen"} onClick={() => newPlayerTextBox()}>+</button>
