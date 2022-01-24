@@ -7,7 +7,7 @@
     display: inline-block;
     font-size: 16px;
     margin: 2px 1px 0 1px;
-    transition-duration: 0.4s;
+    /*transition-duration: 0.1s;*/
     cursor: pointer;
     border-radius: 4px
 }
